@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    // Görselleri optimize etmek için
-    formats: ['image/avif', 'image/webp'],
-  },
+  output: 'export',
+  images: { unoptimized: true },
 }
 
 module.exports = nextConfig

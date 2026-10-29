@@ -1,135 +1,75 @@
-# Nejdet Boya - Profesyonel Boya Hizmetleri Web Sitesi
+# Nejdet Boya
 
-Balıkesir Edremit'te profesyonel iç ve dış cephe boya hizmetleri sunan Nejdet Boya için hazırlanmış modern web sitesi.
+One-page website for a house painter in Edremit, Türkiye. The goal was calls, not a brochure: the phone and WhatsApp buttons come first, then the services, a photo gallery and a free survey request over WhatsApp. The site is in Turkish.
 
-## 🚀 Kurulum
+**Live demo:** [nejdet-boya.pages.dev](https://nejdet-boya.pages.dev)
 
-### 1. Bağımlılıkları Yükleyin
+![Nejdet Boya home page](docs/screenshot.jpg)
+
+## Stack
+
+- [Next.js 14](https://nextjs.org) (App Router, static export)
+- React 18 and TypeScript
+- Tailwind CSS 3
+- Lucide icons
+- Hosted on Cloudflare Pages
+
+## What is in it
+
+- Click-to-call and WhatsApp buttons that stay in reach on small phones.
+- Sections for services, gallery, about, customer comments and contact. A survey request opens WhatsApp with a ready message.
+- All business details and content in one typed file, `src/config/site.ts`, so a change does not mean touching components.
+- Local SEO basics: Turkish title and description with the town name, Open Graph tags.
+- A cookie notice that only stores the visitor's choice. No analytics or tracking scripts are loaded.
+- Fully static output: no server, no database, no API keys.
+
+## Project structure
+
+```
+src/
+  app/
+    layout.tsx        metadata, fonts
+    page.tsx          section order
+    globals.css
+  components/
+    Header.tsx, Footer.tsx, WhatsAppButton.tsx, CookieBanner.tsx
+    sections/         Hero, Services, Gallery, About, Testimonials, Contact
+  config/
+    site.ts           business info, services, gallery, comments
+public/images/        gallery photos
+```
+
+## Run locally
+
+Requires Node.js 18 or newer.
 
 ```bash
 npm install
-```
-
-### 2. Görselleri Taşıyın
-
-Kök klasördeki görsel dosyalarını `public/images/` klasörüne taşıyın:
-
-```powershell
-# PowerShell ile:
-Move-Item "pexels-*.jpg" "public/images/"
-```
-
-### 3. Geliştirme Sunucusunu Başlatın
-
-```bash
 npm run dev
 ```
 
-Site varsayılan olarak http://localhost:3000 adresinde çalışacaktır.
+Open http://localhost:3000.
 
-## 📁 Proje Yapısı
+## Build
 
-```
-nejdet-boya/
-├── public/
-│   └── images/          # Web sitesi görselleri
-├── src/
-│   ├── app/
-│   │   ├── globals.css  # Global stiller
-│   │   ├── layout.tsx   # Ana layout
-│   │   └── page.tsx     # Ana sayfa
-│   ├── components/
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   ├── WhatsAppButton.tsx
-│   │   ├── CookieBanner.tsx
-│   │   └── sections/
-│   │       ├── Hero.tsx
-│   │       ├── Services.tsx
-│   │       ├── Gallery.tsx
-│   │       ├── About.tsx
-│   │       ├── Testimonials.tsx
-│   │       └── Contact.tsx
-│   └── config/
-│       └── site.ts      # Site ayarları ve içerik
-├── package.json
-├── tailwind.config.js
-└── tsconfig.json
+```bash
+npm run build
 ```
 
-## ⚙️ Site Ayarlarını Düzenleme
+The static site is written to `out/`. To publish on Cloudflare Pages:
 
-Tüm site ayarları `src/config/site.ts` dosyasında bulunur. Bu dosyadan kolayca:
-
-- İşletme bilgileri
-- Telefon numarası
-- Konum bilgileri
-- Hizmetler
-- Galeri görselleri
-- Müşteri yorumları
-
-güncellenebilir.
-
-### Yeni Görsel Ekleme
-
-1. Görseli `public/images/` klasörüne kopyalayın
-2. `src/config/site.ts` dosyasındaki `galleryImages` dizisine yeni görsel ekleyin:
-
-```typescript
-{
-  id: 6, // Bir sonraki numara
-  src: "/images/yeni-gorsel.jpg",
-  alt: "Görsel açıklaması",
-  category: "iç-cephe", // veya "dış-cephe", "detay" vb.
-}
+```bash
+npx wrangler pages deploy out --project-name nejdet-boya
 ```
 
-## 🌐 Yayına Alma (Hosting)
+## Editing content
 
-### Vercel (Önerilen)
+Open `src/config/site.ts`. To add a gallery photo, put the file in `public/images/` and add an entry to `galleryImages`:
 
-Next.js'in yaratıcısı olan Vercel, en kolay hosting seçeneğidir:
+```ts
+{ id: 6, src: "/images/new-photo.jpg", alt: "Exterior wall after painting", category: "dış-cephe" }
+```
 
-1. [vercel.com](https://vercel.com) adresine gidin
-2. GitHub hesabınızla giriş yapın
-3. Projenizi GitHub'a yükleyin
-4. Vercel'de "New Project" ile projenizi import edin
-5. Deploy butonuna tıklayın
+## Credits
 
-**Ücretsiz plan özellikleri:**
-- Sınırsız site
-- Otomatik SSL
-- Global CDN
-- Otomatik deploy (GitHub push ile)
-
-### Domain Bağlama
-
-1. Bir domain satın alın (örn: nejdetboya.com)
-2. Vercel panelinden "Domains" bölümüne gidin
-3. Domain'i ekleyin ve DNS ayarlarını yapın
-
-## 📱 Özellikler
-
-- ✅ Modern ve profesyonel tasarım
-- ✅ Mobil uyumlu (responsive)
-- ✅ WhatsApp hızlı iletişim butonu
-- ✅ KVKK uyumlu çerez banner'ı
-- ✅ SEO optimizasyonu
-- ✅ Hızlı yükleme (Next.js optimizasyonları)
-- ✅ Kolay içerik yönetimi (JSON tabanlı)
-
-## 🎨 Renk Paleti
-
-- **Primary (Ana renk):** Mavi tonları - güven ve profesyonellik
-- **Accent:** Turuncu - dikkat çekici CTA'lar
-- **Neutral:** Gri tonları - metin ve arka planlar
-
-## 📞 İletişim
-
-**Nejdet Boya**
-- Telefon: 0542 625 84 59
-- Konum: Edremit, Balıkesir
-
----
-
-Bu web sitesi profesyonel boya hizmetleri için hazırlanmıştır.
+Gallery and hero photos are from [Pexels](https://www.pexels.com) under the Pexels license. Design and build by [commitius](https://commitius.com).
