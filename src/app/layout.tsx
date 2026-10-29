@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description: 'Balıkesir Edremit\'te profesyonel iç ve dış cephe boya hizmetleri. 15+ yıllık tecrübe ile kaliteli ve güvenilir boyama işleri.',
   keywords: 'boya ustası, edremit boya, balıkesir boya, iç cephe boya, dış cephe boya, ev boyama, profesyonel boya',
   authors: [{ name: 'Nejdet Boya' }],
+  // Template project shown as a demo: keep it out of search results.
+  robots: { index: false, follow: false },
   openGraph: {
     title: 'Nejdet Boya | Edremit Profesyonel Boya Ustası',
     description: 'Balıkesir Edremit\'te profesyonel iç ve dış cephe boya hizmetleri.',

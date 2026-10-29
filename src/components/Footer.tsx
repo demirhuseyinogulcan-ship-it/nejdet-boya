@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Phone, MapPin, Mail } from 'lucide-react'
 import { siteConfig } from '@/config/site'
+import { CommitiusCredit } from './CommitiusCredit'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -97,6 +98,7 @@ export default function Footer() {
             <span className="text-gray-500">
               Hizmet Bölgeleri: {siteConfig.serviceAreas.slice(0, 3).join(', ')} ve çevresi
             </span>
+            <CommitiusCredit className="text-gray-400" />
           </div>
         </div>
       </div>
