@@ -1,6 +1,6 @@
 # Nejdet Boya
 
-One-page website for a house painter in Edremit, Türkiye. The goal was calls, not a brochure: the phone and WhatsApp buttons come first, then the services, a photo gallery and a free survey request over WhatsApp. The site is in Turkish.
+Template one-page website for a local tradesman, shown here for a house painter in Edremit, Türkiye. It is a sample project: the photos are stock images and the customer comments are placeholder text. The goal was calls, not a brochure: the phone and WhatsApp buttons come first, then the services, a photo gallery and a free survey request over WhatsApp. The site is in Turkish.
 
 **Live demo:** [nejdet-boya.pages.dev](https://nejdet-boya.pages.dev)
 
